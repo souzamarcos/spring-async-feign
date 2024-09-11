@@ -15,8 +15,14 @@ public class RequestService {
 
     private final HttpClient httpClient;
 
-    @Async
+    @Async("defaultTaskExecutor")
     public CompletableFuture<String> getPageAsync() {
+        log.info("getPageAsync");
+        return CompletableFuture.completedFuture(httpClient.getPage());
+    }
+
+    @Async("virtualTaskExecutor")
+    public CompletableFuture<String> getPageAsyncWithVirtualThreads() {
         log.info("getPageAsync");
         return CompletableFuture.completedFuture(httpClient.getPage());
     }

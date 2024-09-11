@@ -17,3 +17,7 @@ spring:
             loggerLevel: full
             dismiss404: false
             micrometer.enabled: false
+
+  threads:
+    virtual:
+      enabled: true

@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 @Component
-public class AsyncRequestUsecase {
+public class AsyncWithVirtualThreadsRequestUsecase {
 
 
     private final RequestService service;
@@ -20,7 +20,7 @@ public class AsyncRequestUsecase {
         var startTime = System.currentTimeMillis();
         List<CompletableFuture<String>> responses = new ArrayList<>();
         for (int i = 0; i < times; i++) {
-            responses.add(service.getPageAsync());
+            responses.add(service.getPageAsyncWithVirtualThreads());
         }
         responses.forEach(CompletableFuture::join);
         var endTime = System.currentTimeMillis();

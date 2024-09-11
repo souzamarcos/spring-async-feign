@@ -16,4 +16,7 @@ public interface AsyncTestController {
 
     @GetMapping("/request")
     AsyncMetricsDto makeRequests(@RequestParam("times") Integer times);
+
+    @GetMapping("/virtual-threads/request")
+    AsyncMetricsDto makeVirtualThreadsRequests(@RequestParam("times") Integer times);
 }
