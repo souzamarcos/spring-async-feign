@@ -27,8 +27,8 @@ public class RequestService {
         return CompletableFuture.completedFuture(httpClient.getPage());
     }
 
-    public String getPage() {
-        log.info("getPage");
-        return httpClient.getPage();
+    public void getPageSync() {
+        log.info("getPageSync");
+        httpClient.getPage();
     }
 }
